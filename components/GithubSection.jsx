@@ -36,7 +36,7 @@ export default async function GithubSection() {
     <section id="github" className="section-pad border-t border-line-soft">
       <div className="container-x">
         <SectionHeader
-          index="05"
+          index="06"
           eyebrow="GitHub"
           title="Everything ships to GitHub."
           description="A look at what I've been building — pinned repositories, the languages I reach for most, and everything else on my GitHub profile."

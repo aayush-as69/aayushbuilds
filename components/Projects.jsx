@@ -26,7 +26,7 @@ export default function Projects() {
     <section id="projects" className="section-pad border-t border-line-soft">
       <div className="container-x">
         <SectionHeader
-          index="03"
+          index="04"
           eyebrow="Projects"
           title="My Projects."
           description="A collection of things I've loved building — each one started as a problem I wanted to solve, and each one taught me something new. Have a look around."

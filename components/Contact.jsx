@@ -46,7 +46,7 @@ export default function Contact() {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <SectionHeader
-            index="06"
+            index="07"
             eyebrow="Contact"
             title="Have something interesting to build?"
             description="I'm always interested in building useful things, exploring ideas, and connecting with people who enjoy creating."

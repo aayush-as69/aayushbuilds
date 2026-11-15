@@ -32,7 +32,7 @@ export default function Skills() {
     <section id="skills" className="section-pad border-t border-line-soft">
       <div className="container-x">
         <SectionHeader
-          index="02"
+          index="03"
           eyebrow="Skills"
           title="Tools I build with."
           description="The stack I reach for day to day. Highlighted skills are ones I've shipped in the projects below — hover to see which."

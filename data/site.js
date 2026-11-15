@@ -20,6 +20,7 @@ export const siteUrl = (
 export const navLinks = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
+  { id: "hobbies", label: "Hobbies" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
@@ -74,6 +75,29 @@ export const quickFacts = [
 ];
 
 // Each skill group links to the projects that actually use it.
+export const hobbies = {
+  title: "Life outside the editor.",
+  description:
+    "A few things I make time for when I'm not building — they keep the ideas fresh.",
+  items: [
+    {
+      icon: "gamepad",
+      title: "Gaming",
+      text: "My favourite way to switch off — a good game is still the fastest reset after a long build.",
+    },
+    {
+      icon: "book",
+      title: "Reading & films",
+      text: "Sci-fi, thrillers and films worth rewatching — always chasing a story with a clever structure.",
+    },
+    {
+      icon: "flask",
+      title: "Side projects & AI experiments",
+      text: "The line between hobby and work is blurry; most weekends end up as a small prototype.",
+    },
+  ],
+};
+
 export const skillGroups = [
   {
     title: "Languages",
