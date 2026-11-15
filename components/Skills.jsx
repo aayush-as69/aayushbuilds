@@ -43,14 +43,10 @@ export default function Skills() {
             const Icon = icons[group.icon] || Code2;
 
             return (
-              <Reveal
-                key={group.title}
-                delay={(i % 3) * 0.06}
-                className={group.wide ? "sm:col-span-2" : undefined}
-              >
+              <Reveal key={group.title} delay={(i % 3) * 0.06}>
                 <article
                   className={`card group flex h-full flex-col p-5 transition-colors duration-300 hover:border-accent-border sm:p-6 ${
-                    group.wide
+                    group.featured
                       ? "border-accent-border bg-[var(--accent-dim)]"
                       : ""
                   }`}
@@ -58,7 +54,7 @@ export default function Skills() {
                   <div className="flex items-center gap-3">
                     <span
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-colors ${
-                        group.wide
+                        group.featured
                           ? "border-accent-border bg-surface text-accent"
                           : "border-line bg-surface2 text-accent"
                       }`}
