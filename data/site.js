@@ -80,7 +80,6 @@ export const leadership = {
 
 export const quickFacts = [
   { label: "Languages", value: "English · Hindi" },
-  { label: "Coursework", value: "Data Structures & Algorithms using Python — Infosys Springboard" },
   { label: "Currently", value: "Building AI-integrated products and this portfolio" },
 ];
 
@@ -189,15 +188,5 @@ export const experience = [
       "VoiceOps — AI voice customer-support capstone with retrieval evaluation",
     ],
     tags: ["Python", "Flask", "FastAPI", "Gemini", "Agents"],
-  },
-  {
-    role: "Data Structures and Algorithms using Python",
-    org: "Infosys Springboard",
-    type: "Coursework",
-    context: "Ongoing learning",
-    points: [
-      "Structured coursework strengthening Python and problem-solving fundamentals",
-    ],
-    tags: ["Python", "DSA"],
   },
 ];
