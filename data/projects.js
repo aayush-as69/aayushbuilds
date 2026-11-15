@@ -209,7 +209,7 @@ export const projects = [
     status: "Active development",
     github: "https://github.com/aayush-as69/BharatCode-Atlas",
     liveDemo: null,
-    shot: null,
+    shot: "/projects/bharatcode-atlas.webp",
   },
   {
     name: "VoiceOps — ZentroMart",
