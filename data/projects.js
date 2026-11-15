@@ -1,4 +1,9 @@
 // Project data — copy, stack, links and case-study highlights.
+//
+// `shot` is the project's landing-page screenshot for the gallery on the
+// homepage: a path to a file in /public, e.g. "/projects/handover.webp"
+// (16:10, about 1440px wide, WebP or PNG, ideally under ~150 KB). While it is
+// null the gallery shows a generated placeholder card instead.
 // Ordered strongest-first: the four lead projects appear above the fold,
 // the rest live behind the "more projects" toggle on the homepage.
 
@@ -39,6 +44,7 @@ export const projects = [
     status: "Live demo · actively developed",
     github: "https://github.com/aayush-as69/Handover",
     liveDemo: "https://handover-2hpd.onrender.com",
+    shot: null,
   },
   {
     name: "BrandGuard",
@@ -71,6 +77,7 @@ export const projects = [
     status: "Functional application · CI + ~225 tests",
     github: "https://github.com/aayush-as69/BrandGuard",
     liveDemo: null,
+    shot: null,
   },
   {
     name: "MaskChat",
@@ -103,6 +110,7 @@ export const projects = [
     status: "Pilot-stage · deployed demo",
     github: "https://github.com/aayush-as69/MaskChat-MERN",
     liveDemo: "https://mask-chat-mern.vercel.app",
+    shot: null,
   },
   {
     name: "ExceptionPilot",
@@ -136,6 +144,7 @@ export const projects = [
     status: "Functional demonstration",
     github: "https://github.com/aayush-as69/exceptionpilot",
     liveDemo: null,
+    shot: null,
   },
   {
     name: "Meetloop",
@@ -167,6 +176,7 @@ export const projects = [
     status: "Functional prototype",
     github: "https://github.com/aayush-as69/meet-loop",
     liveDemo: null,
+    shot: null,
   },
   {
     name: "BharatCode Atlas",
@@ -199,6 +209,7 @@ export const projects = [
     status: "Active development",
     github: "https://github.com/aayush-as69/BharatCode-Atlas",
     liveDemo: null,
+    shot: null,
   },
   {
     name: "VoiceOps — ZentroMart",
@@ -230,6 +241,7 @@ export const projects = [
     status: "Capstone prototype · evaluated",
     github: "https://github.com/aayush-as69/voiceops-zentromart",
     liveDemo: null,
+    shot: null,
   },
 ];
 

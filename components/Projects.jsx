@@ -7,6 +7,7 @@ import { GithubIcon } from "./icons";
 import { projects } from "@/data/projects";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
+import ProjectGallery from "./ProjectGallery";
 
 const githubBtn =
   "inline-flex items-center gap-1.5 rounded-lg border border-line px-4 py-2 font-mono text-xs text-mute transition-colors hover:border-accent-border hover:text-accent";
@@ -31,6 +32,13 @@ export default function Projects() {
           title="My Projects."
           description="A collection of things I've loved building — each one started as a problem I wanted to solve, and each one taught me something new. Have a look around."
         />
+
+        {/* Landing pages of every project, drifting up and down */}
+        <div className="mb-10 sm:mb-12">
+          <Reveal>
+            <ProjectGallery projects={projects} />
+          </Reveal>
+        </div>
 
         {/* Featured project — Handover */}
         <Reveal>
