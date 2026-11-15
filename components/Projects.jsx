@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import ProjectPreview from "./ProjectPreview";
 import { GithubIcon } from "./icons";
 import { projects } from "@/data/projects";
@@ -45,22 +45,6 @@ export default function Projects() {
                 <p className="mt-5 text-sm leading-relaxed text-mute sm:text-[15px]">
                   {featured.description}
                 </p>
-
-                <ul className="mt-6 space-y-2.5">
-                  {featured.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-2.5 text-sm text-mute"
-                    >
-                      <Check
-                        size={14}
-                        aria-hidden="true"
-                        className="mt-1 shrink-0 text-accent"
-                      />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
 
                 <ul className="mt-7 flex flex-wrap gap-2">
                   {featured.tech.map((t) => (
@@ -145,20 +129,12 @@ function ProjectCard({ project }) {
         <h3 className="mt-3 text-xl font-semibold">{project.name}</h3>
         <p className="mt-1 text-sm text-accent-soft">{project.tagline}</p>
 
-        <ul className="mt-4 space-y-2">
-          {project.features.slice(0, 3).map((f) => (
-            <li
-              key={f}
-              className="flex items-start gap-2 text-[13px] leading-relaxed text-mute"
-            >
-              <span className="dot mt-[7px] bg-accent" aria-hidden="true" />
-              {f}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-3 text-[13px] leading-relaxed text-mute">
+          {project.description}
+        </p>
 
         <ul className="mt-5 flex flex-wrap gap-1.5">
-          {project.tech.slice(0, 6).map((t) => (
+          {project.tech.map((t) => (
             <li key={t} className="chip !px-2.5 !py-0.5">
               {t}
             </li>
