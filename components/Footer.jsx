@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <a
-              href="#home"
+              href="/"
               className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight"
             >
               <span

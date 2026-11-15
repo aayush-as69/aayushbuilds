@@ -6,13 +6,14 @@ Aayush Singh's personal developer portfolio — dark-first, Matrix-boot inspired
 
 ## Features
 
-- **Matrix-inspired boot screen** — canvas glyph rain, terminal status lines, progress bar. Plays once per browser session, skipped for `prefers-reduced-motion` users, keyboard-skippable, auto-completes in ~2s.
+- **Matrix-inspired boot screen** — canvas glyph rain, terminal status lines, progress bar. Plays once per browser session, skipped for `prefers-reduced-motion` users, keyboard-skippable, auto-completes in ~3s.
 - **Premium dark-first design system** — CSS-variable tokens (dark default + optional light theme), Space Grotesk / Inter / JetBrains Mono.
 - **Hero with a self-typing terminal** that starts after the boot screen finishes.
-- **Verified project showcase** — 7 featured projects, all descriptions verified against the actual public repositories; real screenshots where they exist; live-demo links only where deployments were confirmed.
-- **Live GitHub section** — public repo count, primary languages and recent pushes fetched from the GitHub API at runtime, with skeleton loading, error timeout and a curated fallback. No fabricated statistics.
-- **Full SEO** — metadata, Open Graph image (generated via `next/og`), sitemap, robots, JSON-LD Person schema, semantic headings.
-- **Accessibility** — skip link, keyboard navigation, visible focus states, ARIA labels/live regions, reduced-motion support, contrast-checked palette.
+- **Project showcase with case studies** — the strongest four builds lead, the rest sit behind a "more projects" toggle, and every project has its own `/projects/[slug]` page with a distinct description, generated OG image and sitemap entry.
+- **Interactive glass break** on the featured project — click to crack the pane; the cracks stay for the rest of the session.
+- **Server-side GitHub section** — pinned repositories, repo count and primary languages fetched in a server component with hourly revalidation, so the API is called once per hour instead of once per visitor. Falls back to a curated list if GitHub is unavailable.
+- **Full SEO** — per-page metadata, generated Open Graph images with alt text, expanded sitemap, robots, JSON-LD Person + CreativeWork schemas, semantic headings.
+- **Accessibility** — skip link, keyboard navigation, visible focus states, ARIA labels, reduced-motion support, contrast-checked palette.
 
 ## Getting started
 
@@ -25,28 +26,26 @@ npm run lint     # eslint
 
 ## Environment
 
-Copy `.env.example` to `.env` and set the public site URL (used for canonical/sitemap/OG URLs):
+Copy `.env.example` to `.env`:
 
 ```
 NEXT_PUBLIC_SITE_URL=https://your-domain.example
+GITHUB_TOKEN=            # optional
 ```
 
-No secrets are required — the site fetches only public GitHub API data client-side. Never commit real `.env` files.
+`NEXT_PUBLIC_SITE_URL` powers canonical, sitemap and OG URLs. `GITHUB_TOKEN` is optional — without it the GitHub API is unauthenticated (60 requests/hour); with a token, the server-side fetch gets a much higher limit. Never commit real `.env` files.
 
 ## Structure
 
 ```
-app/          layout, page, globals.css, SEO (sitemap/robots/OG), icon
-components/   Navbar, MatrixLoader, Hero, About, Skills, Projects,
-              Experience, GithubSection, Contact, Footer, ...
-data/         site.js (profile/skills/experience), projects.js (verified project data)
-public/       images (project screenshots)
+app/                  layout, homepage, globals.css, icon, SEO (sitemap/robots/OG)
+app/projects/[slug]/  per-project case study + generated OG image
+components/           Navbar, MatrixLoader, Hero, About, Skills, Projects,
+                      Experience, GithubSection, Contact, Footer, ...
+data/                 site.js (profile/skills/experience), projects.js (project data)
+lib/                  github.js (server-side GitHub fetch + pinned repos)
 ```
 
 ## Deployment
 
-Any Next.js host (Vercel recommended). Set `NEXT_PUBLIC_SITE_URL` to the deployed domain. `next start` serves the production build; image optimization is enabled by default.
-
-## Accuracy
-
-Project descriptions, technologies and statuses were audited against the repositories at `github.com/aayush-as69` in November 2026. Personal details come from the supplied resume. Nothing is inflated — no fake metrics, awards or deployments.
+Any Next.js host (Vercel recommended). Set `NEXT_PUBLIC_SITE_URL` to the deployed domain. The GitHub section revalidates hourly, so project updates appear without a redeploy; add `GITHUB_TOKEN` in the host's environment settings to raise the API limit.

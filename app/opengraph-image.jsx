@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             fontSize: 30,
           }}
         >
-          Aayush Singh — full-stack | AI systems | product engineering
+          AI tools that show their evidence — and keep humans in the loop.
         </div>
         <div
           style={{

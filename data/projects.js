@@ -1,7 +1,6 @@
-// Featured projects — every field below was verified against the actual
-// public repository (README, file tree and declared demo URLs) on Nov 2026.
-// liveDemo is only set where the deployment URL was declared in the repo
-// AND confirmed to respond with HTTP 200 during the audit.
+// Project data — copy, stack, links and case-study highlights.
+// Ordered strongest-first: the four lead projects appear above the fold,
+// the rest live behind the "more projects" toggle on the homepage.
 
 export const projects = [
   {
@@ -11,10 +10,19 @@ export const projects = [
     featured: true,
     category: "AI · Knowledge Transfer",
     tagline: "Evidence-backed project knowledge transfer",
+    summary:
+      "Every claim in a handover links to its source, and a human approves what gets published.",
     problem:
       "When a teammate leaves, the context behind their code — decisions, ownership, risks — usually leaves with them.",
     description:
       "Handover turns scattered project sources into a reviewable handover record. It extracts candidate claims, links every claim to its supporting evidence, checks that evidence mechanically, and requires human approval before anything is published.",
+    highlights: [
+      "Evidence-first extraction from notes, chat exports, task CSVs and public GitHub activity",
+      "Confidence labels on every claim — quote-verified, inferred, conflicting or unsupported",
+      "Human approval boundary with immutable claim versions and numbered releases",
+      "Conflict detection and a Questions Before I Leave workflow for missing context",
+      "Secret masking, sensitivity rules and server-enforced role-based access",
+    ],
     tech: [
       "Python",
       "FastAPI",
@@ -31,10 +39,6 @@ export const projects = [
     status: "Live demo · actively developed",
     github: "https://github.com/aayush-as69/Handover",
     liveDemo: "https://handover-2hpd.onrender.com",
-    image: null,
-    imageAlt: null,
-    secondaryImage: null,
-    secondaryAlt: null,
   },
   {
     name: "BrandGuard",
@@ -42,10 +46,19 @@ export const projects = [
     number: "02",
     category: "AI · Brand Governance",
     tagline: "Brand consistency, grounded in evidence",
+    summary:
+      "Deterministic rules, pixel-level image checks and human sign-off for brand content.",
     problem:
       "Brand reviews depend on scattered documents, memory and subjective feedback — so mistakes slip through unexplained.",
     description:
       "An explainable brand-governance workspace that checks content against approved guidelines and facts. Every finding points to a rule, an approved fact and a source quote — and people, not AI, make the final call.",
+    highlights: [
+      "Deterministic rule engine for glossary, tone, prices, dates, claims, alt text and contrast",
+      "Pixel-measured image checks — palette share, logo presence, clear space and text contrast",
+      "Optional AI judge that must cite a real rule quote and exact content span, or its output is discarded",
+      "Server-enforced approval workflow with roles, versioning, comments and an audit trail",
+      "Admin quality benchmark with precision and recall per rule, plus undoable suggestions",
+    ],
     tech: [
       "Python",
       "Flask",
@@ -58,7 +71,6 @@ export const projects = [
     status: "Functional application · CI + ~225 tests",
     github: "https://github.com/aayush-as69/BrandGuard",
     liveDemo: null,
-    image: null,
   },
   {
     name: "MaskChat",
@@ -66,10 +78,19 @@ export const projects = [
     number: "03",
     category: "Full-Stack · Social Good",
     tagline: "Privacy-first peer mentorship for campus communities",
+    summary:
+      "Anonymous peer mentorship that matches students with approved senior mentors in realtime.",
     problem:
       "Students hesitate to ask for mentorship help when it means exposing their identity to seniors or strangers.",
     description:
       "A MERN platform that connects students with approved senior mentors without exposing identities to each other — with institution-scoped matching, realtime sessions, mentor verification and moderation, built around the server as the security boundary.",
+    highlights: [
+      "Anonymous aliases with identity separation, HttpOnly sessions, bcrypt hashing and CSRF protection",
+      "Mentor approval — institutional ID upload with admin review, suspension and revocation",
+      "Matching on institution, topic and availability with a persisted queue and ranked offers",
+      "Realtime Socket.IO rooms with membership checks, plus 1:1 and group sessions",
+      "Institution-scoped forum and moderation with reports, blocks and audit events",
+    ],
     tech: [
       "React",
       "Vite",
@@ -82,65 +103,26 @@ export const projects = [
     status: "Pilot-stage · deployed demo",
     github: "https://github.com/aayush-as69/MaskChat-MERN",
     liveDemo: "https://mask-chat-mern.vercel.app",
-    image: null,
-  },
-  {
-    name: "Meetloop",
-    slug: "meetloop",
-    number: "04",
-    category: "AI Agents · Productivity",
-    tagline: "Meeting transcripts into confirmed execution",
-    problem:
-      "Decisions made in meetings vanish into transcripts — action items lose owners, dates and follow-through.",
-    description:
-      "A meeting-to-execution agent that extracts decisions, owners and deadlines from messy spoken transcripts, remembers earlier decisions, flags contradictions — and only turns items the human explicitly approves into GitHub issues.",
-    tech: [
-      "Python",
-      "Flask",
-      "SQLite",
-      "Gemini API",
-      "Anthropic API",
-      "GitHub API",
-    ],
-    status: "Functional prototype",
-    github: "https://github.com/aayush-as69/meet-loop",
-    liveDemo: null,
-    image: null,
-  },
-  {
-    name: "BharatCode Atlas",
-    slug: "bharatcode-atlas",
-    number: "05",
-    category: "Full-Stack · Developer Tools",
-    tagline: "A research workspace for a 294-project build league",
-    problem:
-      "When hundreds of projects ship at once, the hard question is what to investigate next — and what to learn from how other teams built it.",
-    description:
-      "A JavaScript-only Next.js workspace that loads the full BharatCode Build League corpus and turns it into a research workflow — search, recommendations, architecture fingerprints from repository evidence, side-by-side comparison and a personal study tracker.",
-    tech: [
-      "Next.js 15",
-      "React 19",
-      "JavaScript (JSX-only)",
-      "Node.js",
-      "GitHub REST API",
-      "node:test",
-      "GitHub Actions",
-    ],
-    status: "Active development",
-    github: "https://github.com/aayush-as69/BharatCode-Atlas",
-    liveDemo: null,
-    image: null,
   },
   {
     name: "ExceptionPilot",
     slug: "exceptionpilot",
-    number: "06",
+    number: "04",
     category: "Full-Stack · Finance Ops",
     tagline: "Explainable invoice exception management",
+    summary:
+      "Invoice exceptions investigated with three-way matching, policy retrieval and audit trails.",
     problem:
       "Invoice exceptions become payment problems when the investigation trail — matching, policy, approvals — lives in disconnected systems.",
     description:
       "A finance workflow workspace for investigating invoice exceptions before they escalate — three-way matching and risk signals on one side, version-aware policy retrieval and optional grounded AI on the other, with human approval and an append-only audit trail underneath.",
+    highlights: [
+      "Three-way PO / invoice / GRN matching with variance, tolerance and duplicate indicators",
+      "Version-aware policy retrieval — lexical plus optional pgvector — feeding grounded generation",
+      "Role-aware approvals with thresholds, separation of duties and single-use decisions",
+      "Append-only audit trail with holds, procurement tasks and SLA monitoring",
+      "Backend RBAC, secure sessions, CSP and security headers, upload validation",
+    ],
     tech: [
       "Next.js",
       "React",
@@ -154,7 +136,69 @@ export const projects = [
     status: "Functional demonstration",
     github: "https://github.com/aayush-as69/exceptionpilot",
     liveDemo: null,
-    image: null,
+  },
+  {
+    name: "Meetloop",
+    slug: "meetloop",
+    number: "05",
+    category: "AI Agents · Productivity",
+    tagline: "Meeting transcripts into confirmed execution",
+    summary:
+      "Meeting transcripts turned into owner-tagged action items — filed only after you approve them.",
+    problem:
+      "Decisions made in meetings vanish into transcripts — action items lose owners, dates and follow-through.",
+    description:
+      "A meeting-to-execution agent that extracts decisions, owners and deadlines from messy spoken transcripts, remembers earlier decisions, flags contradictions — and only turns items the human explicitly approves into GitHub issues.",
+    highlights: [
+      "Paste, dictate or upload .txt / .vtt transcripts built for filler words and self-corrections",
+      "Cross-meeting memory with conflict detection against earlier decisions",
+      "Human approval boundary — nothing posts to GitHub without explicit confirmation, and posting is idempotent",
+      "24-hour, 1-hour and overdue reminders plus a weekly per-person digest",
+      "Deterministic rule-based fallback keeps the full flow working without an LLM key",
+    ],
+    tech: [
+      "Python",
+      "Flask",
+      "SQLite",
+      "Gemini API",
+      "Anthropic API",
+      "GitHub API",
+    ],
+    status: "Functional prototype",
+    github: "https://github.com/aayush-as69/meet-loop",
+    liveDemo: null,
+  },
+  {
+    name: "BharatCode Atlas",
+    slug: "bharatcode-atlas",
+    number: "06",
+    category: "Full-Stack · Developer Tools",
+    tagline: "A research workspace for a 294-project build league",
+    summary:
+      "A research workspace for a 294-project build league, grounded in repository evidence.",
+    problem:
+      "When hundreds of projects ship at once, the hard question is what to investigate next — and what to learn from how other teams built it.",
+    description:
+      "A JavaScript-only Next.js workspace that loads the full BharatCode Build League corpus and turns it into a research workflow — search, recommendations, architecture fingerprints from repository evidence, side-by-side comparison and a personal study tracker.",
+    highlights: [
+      "Search, filtering, rankings and hidden-gem discovery across all 294 projects",
+      "For You recommendations from interests and an optional public GitHub profile",
+      "Compare 2–4 projects — architecture layers, technologies and the evidence behind each signal",
+      "Local Research Workspace with study status, notes, questions and saved evidence snapshots",
+      "Retrieval-grounded AI Researcher that shows the projects behind every answer",
+    ],
+    tech: [
+      "Next.js 15",
+      "React 19",
+      "JavaScript (JSX-only)",
+      "Node.js",
+      "GitHub REST API",
+      "node:test",
+      "GitHub Actions",
+    ],
+    status: "Active development",
+    github: "https://github.com/aayush-as69/BharatCode-Atlas",
+    liveDemo: null,
   },
   {
     name: "VoiceOps — ZentroMart",
@@ -162,10 +206,19 @@ export const projects = [
     number: "07",
     category: "AI · Voice & RAG",
     tagline: "Grounded customer support through text and voice",
+    summary:
+      "A voice-and-text support agent that answers from its knowledge base and admits when it can't.",
     problem:
       "Support bots frustrate customers when they make things up — I'd rather say \"I don't know\" than guess.",
     description:
       "A FastAPI support agent for a fictional store that answers from a knowledge base, looks up orders safely, and speaks and listens through voice.",
+    highlights: [
+      "TF-IDF / cosine retrieval over the knowledge base with source and section metadata",
+      "Order lookup protected by phone-suffix or delivery-pincode checks",
+      "Gnani.ai STT / TTS adapters with a browser microphone workflow and batch audio processing",
+      "Multi-turn context with explicit failure states instead of made-up provider results",
+      "Evaluation harness — retrieval, conversations, dataset validation and 113 automated tests",
+    ],
     tech: [
       "Python",
       "FastAPI",
@@ -177,7 +230,6 @@ export const projects = [
     status: "Capstone prototype · evaluated",
     github: "https://github.com/aayush-as69/voiceops-zentromart",
     liveDemo: null,
-    image: null,
   },
 ];
 

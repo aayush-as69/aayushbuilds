@@ -32,9 +32,12 @@ export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://aayushbuilds.vercel.app"
   ),
-  title: "Aayush Singh | AayushBuilds — Developer & Builder",
+  title: {
+    default: "Aayush Singh | AayushBuilds — Developer & Builder",
+    template: "%s | AayushBuilds",
+  },
   description:
-    "Aayush Singh's personal portfolio — exploring full-stack development, AI-powered applications, and software engineering.",
+    "Aayush Singh's portfolio — AI tools that show their evidence and keep humans in the loop, plus the full-stack products around them.",
   keywords: [
     "Aayush Singh",
     "AayushBuilds",
@@ -50,7 +53,7 @@ export const metadata = {
   openGraph: {
     title: "Aayush Singh | AayushBuilds — Developer & Builder",
     description:
-      "Building software that solves problems, not just demos. Full-stack development, AI-powered systems and developer-focused products.",
+      "I build AI tools that show their evidence and keep humans in the loop — with the full-stack products around them.",
     url: "/",
     siteName: "AayushBuilds",
     type: "website",
@@ -60,7 +63,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Aayush Singh | AayushBuilds — Developer & Builder",
     description:
-      "Building software that solves problems, not just demos. Full-stack development, AI-powered systems and developer-focused products.",
+      "I build AI tools that show their evidence and keep humans in the loop — with the full-stack products around them.",
   },
   alternates: {
     canonical: "/",

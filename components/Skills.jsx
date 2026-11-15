@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Code2,
   AppWindow,
@@ -9,6 +10,7 @@ import {
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { skillGroups } from "@/data/site";
+import { projects } from "@/data/projects";
 
 const icons = {
   code: Code2,
@@ -18,6 +20,10 @@ const icons = {
   brain: Brain,
   wrench: Wrench,
 };
+
+const projectBySlug = Object.fromEntries(
+  projects.map((project) => [project.slug, project])
+);
 
 export default function Skills() {
   return (
@@ -33,6 +39,10 @@ export default function Skills() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, i) => {
             const Icon = icons[group.icon] || Code2;
+            const linked = (group.projects || [])
+              .map((slug) => projectBySlug[slug])
+              .filter(Boolean);
+
             return (
               <Reveal
                 key={group.title}
@@ -76,6 +86,32 @@ export default function Skills() {
                       </li>
                     ))}
                   </ul>
+
+                  {linked.length > 0 ? (
+                    <div className="mt-auto border-t border-line-soft pt-4">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-mute">
+                        Used in
+                      </p>
+                      <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5">
+                        {linked.map((project) => (
+                          <li key={project.slug}>
+                            <Link
+                              href={`/projects/${project.slug}`}
+                              className="group/link inline-flex items-center gap-1 text-[13px] text-accent-soft transition-colors hover:text-accent"
+                            >
+                              {project.name}
+                              <span
+                                aria-hidden="true"
+                                className="font-mono text-[11px] opacity-60 transition-transform duration-200 group-hover/link:translate-x-0.5"
+                              >
+                                →
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
                 </article>
               </Reveal>
             );

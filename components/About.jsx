@@ -1,7 +1,7 @@
-import { GraduationCap, Users, Compass } from "lucide-react";
+import { GraduationCap, Compass } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
-import { about, education, leadership, quickFacts } from "@/data/site";
+import { about, education, quickFacts } from "@/data/site";
 
 export default function About() {
   return (
@@ -58,36 +58,6 @@ export default function About() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              <div className="card p-5 sm:p-6">
-                <div className="flex items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line bg-surface2 text-accent">
-                    <Users size={18} aria-hidden="true" />
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="text-base font-semibold leading-snug">
-                      {leadership.role}
-                    </h3>
-                    <p className="mt-1 text-sm text-mute">{leadership.org}</p>
-                    <ul className="mt-4 space-y-2">
-                      {leadership.points.map((point) => (
-                        <li
-                          key={point}
-                          className="flex items-start gap-2.5 text-sm text-mute"
-                        >
-                          <span
-                            className="dot mt-[7px] bg-accent"
-                            aria-hidden="true"
-                          />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.18}>
               <div className="card p-5 sm:p-6">
                 <div className="flex items-start gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line bg-surface2 text-accent">
