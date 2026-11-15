@@ -78,8 +78,7 @@ export const skillGroups = [
   {
     title: "Languages",
     icon: "code",
-    blurb: "Core languages my repositories are actually written in.",
-    projects: ["handover", "brandguard", "bharatcode-atlas"],
+    blurb: "What my repositories are written in.",
     items: [
       { label: "Python", tech: ["Python"] },
       { label: "C" },
@@ -92,8 +91,7 @@ export const skillGroups = [
   {
     title: "Frontend",
     icon: "window",
-    blurb: "React and Next.js apps — including this site.",
-    projects: ["maskchat", "bharatcode-atlas", "exceptionpilot"],
+    blurb: "React and Next.js, including this site.",
     items: [
       { label: "React", tech: ["React", "React 19"] },
       { label: "Next.js", tech: ["Next.js", "Next.js 15"] },
@@ -104,8 +102,7 @@ export const skillGroups = [
   {
     title: "Backend",
     icon: "server",
-    blurb: "APIs and realtime services across three frameworks.",
-    projects: ["handover", "brandguard", "maskchat"],
+    blurb: "APIs and realtime services.",
     items: [
       { label: "Node.js", tech: ["Node.js"] },
       { label: "Express", tech: ["Express"] },
@@ -118,8 +115,7 @@ export const skillGroups = [
   {
     title: "Databases",
     icon: "database",
-    blurb: "Relational, document and vector stores used across builds.",
-    projects: ["handover", "maskchat", "exceptionpilot"],
+    blurb: "Relational, document and vector stores.",
     items: [
       { label: "MySQL" },
       { label: "PostgreSQL", tech: ["PostgreSQL"] },
@@ -135,8 +131,7 @@ export const skillGroups = [
     icon: "brain",
     wide: true,
     blurb:
-      "The focus of recent builds — LLM systems where I make retrieval show its sources and a human stays in the loop.",
-    projects: ["handover", "brandguard", "meetloop", "voiceops"],
+      "LLM systems that show their sources, with a human in the loop.",
     items: [
       { label: "RAG pipelines", tech: ["TF-IDF RAG", "pgvector"] },
       { label: "Gemini API", tech: ["Gemini API", "Gemini / OpenAI"] },
@@ -149,8 +144,7 @@ export const skillGroups = [
   {
     title: "Tooling & Infra",
     icon: "wrench",
-    blurb: "CI, containers, testing and deployment — the glue around my projects.",
-    projects: ["handover", "brandguard", "exceptionpilot"],
+    blurb: "CI, containers, testing and deploys.",
     items: [
       { label: "Git & GitHub" },
       { label: "GitHub Actions CI", tech: ["GitHub Actions"] },
