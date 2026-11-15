@@ -46,10 +46,15 @@ module.exports = {
           "0%, 45%": { opacity: "1" },
           "50%, 95%": { opacity: "0" },
         },
+        "gallery-scroll": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-25%)" },
+        },
       },
       animation: {
         "pulse-soft": "pulse-soft 2.6s ease-in-out infinite",
         "caret-blink": "caret-blink 1.1s steps(1) infinite",
+        gallery: "gallery-scroll 60s linear infinite",
       },
     },
   },
