@@ -176,7 +176,7 @@ export const projects = [
     status: "Functional prototype",
     github: "https://github.com/aayush-as69/meet-loop",
     liveDemo: null,
-    shot: null,
+    shot: "/projects/meetloop.webp",
   },
   {
     name: "BharatCode Atlas",
