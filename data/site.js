@@ -80,7 +80,6 @@ export const leadership = {
 
 export const quickFacts = [
   { label: "Languages", value: "English · Hindi" },
-  { label: "Currently", value: "Building AI-integrated products and this portfolio" },
 ];
 
 // Skill sources: "resume" = confirmed from the resume,
