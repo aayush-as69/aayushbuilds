@@ -41,20 +41,20 @@
   --text-secondary: #5c675f;
   --border: #d9e0da;
   --border-soft: #e4eae5;
-  --accent: #0b8a4b;
-  --accent-soft: #35855a;
+  --accent: #09783f;
+  --accent-soft: #2a7650;
   --accent-contrast: #ffffff;
-  --accent-dim: rgba(11, 138, 75, 0.08);
-  --accent-border: rgba(11, 138, 75, 0.35);
+  --accent-dim: rgba(9, 120, 63, 0.08);
+  --accent-border: rgba(9, 120, 63, 0.35);
   --overlay: rgba(245, 247, 245, 0.85);
-  --glow: rgba(11, 138, 75, 0.16);
+  --glow: rgba(9, 120, 63, 0.16);
   --shadow: rgba(24, 36, 28, 0.08);
   --code-bg: #eef2ef;
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-sheen: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.8),
-    rgba(11, 138, 75, 0.05) 50%,
+    rgba(9, 120, 63, 0.05) 50%,
     rgba(255, 255, 255, 0.2) 100%
   );
   --glass-edge: rgba(255, 255, 255, 0.9);
