@@ -44,7 +44,7 @@ export const projects = [
     status: "Live demo · actively developed",
     github: "https://github.com/aayush-as69/Handover",
     liveDemo: "https://handover-2hpd.onrender.com",
-    shot: null,
+    shot: "/projects/handover.webp",
   },
   {
     name: "BrandGuard",
@@ -77,7 +77,7 @@ export const projects = [
     status: "Functional application · CI + ~225 tests",
     github: "https://github.com/aayush-as69/BrandGuard",
     liveDemo: null,
-    shot: null,
+    shot: "/projects/brandguard.webp",
   },
   {
     name: "MaskChat",
@@ -110,7 +110,7 @@ export const projects = [
     status: "Pilot-stage · deployed demo",
     github: "https://github.com/aayush-as69/MaskChat-MERN",
     liveDemo: "https://mask-chat-mern.vercel.app",
-    shot: null,
+    shot: "/projects/maskchat.webp",
   },
   {
     name: "ExceptionPilot",
@@ -144,7 +144,7 @@ export const projects = [
     status: "Functional demonstration",
     github: "https://github.com/aayush-as69/exceptionpilot",
     liveDemo: null,
-    shot: null,
+    shot: "/projects/exceptionpilot.webp",
   },
   {
     name: "Meetloop",
@@ -241,7 +241,7 @@ export const projects = [
     status: "Capstone prototype · evaluated",
     github: "https://github.com/aayush-as69/voiceops-zentromart",
     liveDemo: null,
-    shot: null,
+    shot: "/projects/voiceops.webp",
   },
 ];
 
