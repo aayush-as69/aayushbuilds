@@ -1,8 +1,14 @@
 import Reveal from "./Reveal";
 
-export default function SectionHeader({ index, eyebrow, title, description }) {
+export default function SectionHeader({
+  index,
+  eyebrow,
+  title,
+  description,
+  className = "mb-12 max-w-2xl sm:mb-16",
+}) {
   return (
-    <Reveal className="mb-12 max-w-2xl sm:mb-16">
+    <Reveal className={className}>
       <p className="eyebrow">
         <span className="text-accent">{index}</span>
         <span className="mx-2 text-line" aria-hidden="true">
