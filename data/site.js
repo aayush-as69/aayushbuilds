@@ -153,7 +153,7 @@ export const skillGroups = [
   {
     title: "AI & Retrieval",
     icon: "brain",
-    wide: true,
+    featured: true,
     blurb:
       "LLM systems that show their sources, with a human in the loop.",
     items: [
