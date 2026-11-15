@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowDown, ArrowUpRight, ChevronDown } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { projects } from "@/data/projects";
 import SectionHeader from "./SectionHeader";
@@ -26,19 +26,30 @@ export default function Projects() {
   return (
     <section id="projects" className="section-pad border-t border-line-soft">
       <div className="container-x">
-        <SectionHeader
-          index="04"
-          eyebrow="Projects"
-          title="My Projects."
-          description="A collection of things I've loved building — each one started as a problem I wanted to solve, and each one taught me something new. Have a look around."
-        />
+        {/* Heading on the left, landing pages drifting up and down on the right */}
+        <div className="mb-10 grid items-center gap-10 sm:mb-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-14">
+          <div>
+            <SectionHeader
+              index="04"
+              eyebrow="Projects"
+              title="My Projects."
+              description="A collection of things I've loved building — each one started as a problem I wanted to solve, and each one taught me something new. Have a look around."
+              className="max-w-xl"
+            />
+            <Reveal className="mt-8">
+              <a href="#project-list" className="btn-primary">
+                Browse all projects
+                <ArrowDown size={15} aria-hidden="true" />
+              </a>
+            </Reveal>
+          </div>
 
-        {/* Landing pages of every project, drifting up and down */}
-        <div className="mb-10 sm:mb-12">
           <Reveal>
             <ProjectGallery projects={projects} />
           </Reveal>
         </div>
+
+        <div id="project-list" className="scroll-mt-24" />
 
         {/* Featured project — Handover */}
         <Reveal>
