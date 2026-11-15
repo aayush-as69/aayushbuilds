@@ -91,12 +91,12 @@ export const skillGroups = [
     icon: "code",
     blurb: "Core languages my repositories are actually written in.",
     items: [
-      { label: "Python", src: "resume" },
-      { label: "C", src: "resume" },
-      { label: "JavaScript", src: "repo" },
-      { label: "HTML", src: "resume" },
-      { label: "CSS", src: "resume" },
-      { label: "SQL", src: "repo" },
+      { label: "Python" },
+      { label: "C" },
+      { label: "JavaScript" },
+      { label: "HTML" },
+      { label: "CSS" },
+      { label: "SQL" },
     ],
   },
   {
@@ -104,10 +104,10 @@ export const skillGroups = [
     icon: "window",
     blurb: "React and Next.js apps — including this site.",
     items: [
-      { label: "React", src: "repo" },
-      { label: "Next.js", src: "repo" },
-      { label: "Vite", src: "repo" },
-      { label: "Tailwind CSS", src: "site" },
+      { label: "React" },
+      { label: "Next.js" },
+      { label: "Vite" },
+      { label: "Tailwind CSS" },
     ],
   },
   {
@@ -115,12 +115,12 @@ export const skillGroups = [
     icon: "server",
     blurb: "APIs and realtime services across three frameworks.",
     items: [
-      { label: "Node.js", src: "repo" },
-      { label: "Express", src: "repo" },
-      { label: "Flask", src: "resume" },
-      { label: "FastAPI", src: "repo" },
-      { label: "REST APIs", src: "repo" },
-      { label: "Socket.IO", src: "repo" },
+      { label: "Node.js" },
+      { label: "Express" },
+      { label: "Flask" },
+      { label: "FastAPI" },
+      { label: "REST APIs" },
+      { label: "Socket.IO" },
     ],
   },
   {
@@ -128,13 +128,13 @@ export const skillGroups = [
     icon: "database",
     blurb: "Relational, document and vector stores used across builds.",
     items: [
-      { label: "MySQL", src: "resume" },
-      { label: "PostgreSQL", src: "repo" },
-      { label: "pgvector", src: "repo" },
-      { label: "MongoDB", src: "repo" },
-      { label: "SQLite", src: "repo" },
-      { label: "SQLAlchemy", src: "repo" },
-      { label: "Drizzle ORM", src: "repo" },
+      { label: "MySQL" },
+      { label: "PostgreSQL" },
+      { label: "pgvector" },
+      { label: "MongoDB" },
+      { label: "SQLite" },
+      { label: "SQLAlchemy" },
+      { label: "Drizzle ORM" },
     ],
   },
   {
@@ -144,12 +144,12 @@ export const skillGroups = [
     blurb:
       "The focus of recent builds — grounded LLM systems where retrieval is verified and the human approves the output.",
     items: [
-      { label: "RAG pipelines", src: "repo" },
-      { label: "Gemini API", src: "repo" },
-      { label: "OpenAI-compatible LLMs", src: "repo" },
-      { label: "Anthropic API", src: "repo" },
-      { label: "TF-IDF / cosine retrieval", src: "repo" },
-      { label: "Speech STT / TTS", src: "repo" },
+      { label: "RAG pipelines" },
+      { label: "Gemini API" },
+      { label: "OpenAI-compatible LLMs" },
+      { label: "Anthropic API" },
+      { label: "TF-IDF / cosine retrieval" },
+      { label: "Speech STT / TTS" },
     ],
   },
   {
@@ -157,21 +157,14 @@ export const skillGroups = [
     icon: "wrench",
     blurb: "CI, containers, testing and deployment, repo-verified.",
     items: [
-      { label: "Git & GitHub", src: "repo" },
-      { label: "GitHub Actions CI", src: "repo" },
-      { label: "Docker", src: "repo" },
-      { label: "Vercel", src: "repo" },
-      { label: "Render", src: "repo" },
-      { label: "Pytest / Playwright", src: "repo" },
-      { label: "IoT fundamentals", src: "resume" },
+      { label: "Git & GitHub" },
+      { label: "GitHub Actions CI" },
+      { label: "Docker" },
+      { label: "Vercel" },
+      { label: "Render" },
+      { label: "Pytest / Playwright" },
     ],
   },
-];
-
-export const skillLegend = [
-  { src: "repo", label: "verified in public repositories" },
-  { src: "resume", label: "from the resume" },
-  { src: "site", label: "used to build this site" },
 ];
 
 export const experience = [

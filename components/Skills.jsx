@@ -5,11 +5,10 @@ import {
   Database,
   Brain,
   Wrench,
-  Info,
 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
-import { skillGroups, skillLegend } from "@/data/site";
+import { skillGroups } from "@/data/site";
 
 const icons = {
   code: Code2,
@@ -18,12 +17,6 @@ const icons = {
   database: Database,
   brain: Brain,
   wrench: Wrench,
-};
-
-const dotColor = {
-  repo: "bg-accent",
-  resume: "bg-mute",
-  site: "bg-accent-soft",
 };
 
 export default function Skills() {
@@ -79,10 +72,6 @@ export default function Skills() {
                   <ul className="mt-4 flex flex-wrap gap-2 pt-1">
                     {group.items.map((item) => (
                       <li key={item.label} className="chip">
-                        <span
-                          className={`dot ${dotColor[item.src]}`}
-                          aria-hidden="true"
-                        />
                         {item.label}
                       </li>
                     ))}
@@ -91,33 +80,6 @@ export default function Skills() {
               </Reveal>
             );
           })}
-
-          {/* Honesty legend as a card — keeps the grid balanced and the promise visible */}
-          <Reveal delay={0.12}>
-            <aside className="card flex h-full flex-col p-5 sm:p-6" aria-label="How to read the skill dots">
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-surface2 text-mute">
-                  <Info size={17} aria-hidden="true" />
-                </span>
-                <h3 className="text-base font-semibold">How the dots work</h3>
-              </div>
-              <ul className="mt-4 space-y-2.5">
-                {skillLegend.map((l) => (
-                  <li
-                    key={l.src}
-                    className="flex items-center gap-2.5 text-[13px] text-mute"
-                  >
-                    <span className={`dot ${dotColor[l.src]}`} aria-hidden="true" />
-                    {l.label}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-auto border-t border-line-soft pt-4 font-mono text-[10.5px] leading-relaxed text-mute">
-                every item traces to real code or the resume — nothing is
-                self-rated
-              </p>
-            </aside>
-          </Reveal>
         </div>
       </div>
     </section>
