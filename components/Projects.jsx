@@ -20,8 +20,8 @@ export default function Projects() {
         <SectionHeader
           index="03"
           eyebrow="Projects"
-          title="Selected work."
-          description="Seven builds chosen for depth — AI systems with human approval boundaries, full-stack products, and engineering with real evaluation. Descriptions are verified against the repositories."
+          title="My Projects."
+          description="A collection of things I've loved building — each one started as a problem I wanted to solve, and each one taught me something new. Have a look around."
         />
 
         {/* Featured project — Handover */}
@@ -98,8 +98,6 @@ export default function Projects() {
 function ProjectCard({ project }) {
   return (
     <article className="card group flex h-full flex-col p-4 transition-all duration-300 hover:-translate-y-1 hover:border-accent-border hover:shadow-glow sm:p-5">
-      <GlassPane seed={project.slug} />
-
       <div className="flex flex-1 flex-col px-1.5 pb-1.5 pt-1">
         <div className="flex items-center gap-3">
           <span className="font-mono text-xs text-accent">{project.number}</span>

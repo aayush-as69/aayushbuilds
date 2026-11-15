@@ -163,9 +163,9 @@ export const projects = [
     category: "AI · Voice & RAG",
     tagline: "Grounded customer support through text and voice",
     problem:
-      "Support bots fail customers when answers are invented — grounding and honest failure states matter more than flair.",
+      "Support bots frustrate customers when they make things up — I'd rather say \"I don't know\" than guess.",
     description:
-      "A FastAPI support agent for a fictional store that combines retrieval-grounded answers with guarded order and ticket tools, plus speech in and out via Gnani.ai. Evaluated on a practice set — 52/52 RAG answers and 90/90 retrieval recall.",
+      "A FastAPI support agent for a fictional store that answers from a knowledge base, looks up orders safely, and speaks and listens through voice.",
     tech: [
       "Python",
       "FastAPI",
@@ -196,7 +196,7 @@ export const moreRepos = [
   {
     name: "civicsync",
     description:
-      "Lighter civic-platform iteration — natural-language complaints routed into departments as traceable, citizen-verifiable tickets.",
+      "Lighter civic-platform iteration — natural-language complaints routed into departments as service tickets citizens can follow.",
     tech: ["Python", "Flask", "React", "SQLAlchemy", "Gemini"],
     github: "https://github.com/aayush-as69/civicsync",
     liveDemo: "https://civicsync-topaz.vercel.app",

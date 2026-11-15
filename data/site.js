@@ -39,9 +39,9 @@ export const hero = {
   terminal: {
     user: "aayush@builds",
     blocks: [
-      { cmd: "whoami", out: ["aayush.singh"] },
+      { cmd: "whoami", out: ["aayush.singh — builder of things"] },
       { cmd: "focus", out: ["full-stack", "AI systems", "product engineering"] },
-      { cmd: "status", out: ["building..."] },
+      { cmd: "status", out: ["always building something new..."] },
     ],
   },
 };
@@ -49,8 +49,8 @@ export const hero = {
 export const about = {
   title: "A little about the builder.",
   paragraphs: [
-    "I'm a Computer Science Engineering student at Galgotias College of Engineering and Technology. I enjoy building software across the stack, exploring AI integrations, and designing systems that go beyond surface-level functionality.",
-    "My interests include full-stack development, backend engineering, AI-assisted workflows, system design, and building useful products.",
+    "I'm a Computer Science Engineering student at Galgotias College of Engineering and Technology, and honestly — I just love building things. From quick weekend prototypes to full products, I enjoy working across the stack and figuring out how everything fits together.",
+    "Lately I've been deep into full-stack development and backend engineering, exploring where AI can actually be useful, and getting a little better at system design with every project.",
   ],
   interestChips: [
     "Full-stack development",
@@ -59,7 +59,7 @@ export const about = {
     "System design",
     "Useful products",
   ],
-  note: "Facts on this page come from Aayush's resume and his public GitHub repositories — nothing inflated.",
+  note: "Thanks for stopping by — I'm always happy to talk about ideas, projects or collaborations.",
 };
 
 export const education = {
@@ -142,7 +142,7 @@ export const skillGroups = [
     icon: "brain",
     wide: true,
     blurb:
-      "The focus of recent builds — grounded LLM systems where retrieval is verified and the human approves the output.",
+      "The focus of recent builds — LLM systems where I make retrieval show its sources and a human stays in the loop.",
     items: [
       { label: "RAG pipelines" },
       { label: "Gemini API" },
@@ -155,7 +155,7 @@ export const skillGroups = [
   {
     title: "Tooling & Infra",
     icon: "wrench",
-    blurb: "CI, containers, testing and deployment, repo-verified.",
+    blurb: "CI, containers, testing and deployment — the glue around my projects.",
     items: [
       { label: "Git & GitHub" },
       { label: "GitHub Actions CI" },
@@ -188,7 +188,7 @@ export const experience = [
     points: [
       "Led backend and agent architecture across the team's builds",
       "TerraSync — Gemini-assisted civic reporting platform built for HackBase HackDays (Edition 2)",
-      "CivicSync — natural-language civic complaints routed into traceable service tickets",
+      "CivicSync — natural-language civic complaints routed into departments as service tickets",
       "VoiceOps — AI voice customer-support capstone with retrieval evaluation",
     ],
     tags: ["Python", "Flask", "FastAPI", "Gemini", "Agents"],

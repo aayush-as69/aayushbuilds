@@ -14,7 +14,7 @@ export default function Experience() {
           index="04"
           eyebrow="Experience"
           title="Where I'm building and leading."
-          description="Only verified experience — campus leadership and hackathon/project work traceable to public repositories."
+          description="A bit about where I've been spending my time — campus leadership, hackathons and the projects in between."
         />
 
         <ol className="relative ml-2 space-y-10 border-l border-line pl-6 sm:ml-4 sm:pl-8">

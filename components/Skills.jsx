@@ -27,7 +27,7 @@ export default function Skills() {
           index="02"
           eyebrow="Skills"
           title="Tools I build with."
-          description="An honest snapshot of the stack behind my repositories — resume-confirmed fundamentals plus technologies verified in public code. No invented proficiency percentages."
+          description="Here's the stack I reach for day to day — the languages, frameworks and tools I've picked up while building things I care about."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

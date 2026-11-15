@@ -17,7 +17,7 @@ import { moreRepos } from "@/data/projects";
  */
 
 const FALLBACK_NOTE =
-  "Live GitHub data is unavailable right now — showing a curated snapshot instead.";
+  "GitHub's API is being shy right now — here are a few of my repositories in the meantime.";
 
 function relativeDays(iso) {
   const days = Math.max(
@@ -92,7 +92,7 @@ export default function GithubSection() {
           index="05"
           eyebrow="GitHub"
           title="Everything ships to GitHub."
-          description="Public repositories, primary languages and recent activity — fetched live from the GitHub API. If the API is unavailable, a curated snapshot is shown instead of invented numbers."
+          description="This is where I live as a developer — my public repositories, the languages I use and what I've been pushing lately, all fetched live from the GitHub API."
         />
 
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -168,8 +168,7 @@ export default function GithubSection() {
               </dl>
 
               <p className="mt-3 font-mono text-[10px] leading-relaxed text-mute">
-                language chips reflect primary language per repository — no
-                percentages, no invented counts
+                live from my GitHub profile
               </p>
 
               <a
