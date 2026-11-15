@@ -88,6 +88,8 @@ export const quickFacts = [
 export const skillGroups = [
   {
     title: "Languages",
+    icon: "code",
+    blurb: "Core languages my repositories are actually written in.",
     items: [
       { label: "Python", src: "resume" },
       { label: "C", src: "resume" },
@@ -99,6 +101,8 @@ export const skillGroups = [
   },
   {
     title: "Frontend",
+    icon: "window",
+    blurb: "React and Next.js apps — including this site.",
     items: [
       { label: "React", src: "repo" },
       { label: "Next.js", src: "repo" },
@@ -108,6 +112,8 @@ export const skillGroups = [
   },
   {
     title: "Backend",
+    icon: "server",
+    blurb: "APIs and realtime services across three frameworks.",
     items: [
       { label: "Node.js", src: "repo" },
       { label: "Express", src: "repo" },
@@ -119,6 +125,8 @@ export const skillGroups = [
   },
   {
     title: "Databases",
+    icon: "database",
+    blurb: "Relational, document and vector stores used across builds.",
     items: [
       { label: "MySQL", src: "resume" },
       { label: "PostgreSQL", src: "repo" },
@@ -131,6 +139,10 @@ export const skillGroups = [
   },
   {
     title: "AI & Retrieval",
+    icon: "brain",
+    wide: true,
+    blurb:
+      "The focus of recent builds — grounded LLM systems where retrieval is verified and the human approves the output.",
     items: [
       { label: "RAG pipelines", src: "repo" },
       { label: "Gemini API", src: "repo" },
@@ -142,6 +154,8 @@ export const skillGroups = [
   },
   {
     title: "Tooling & Infra",
+    icon: "wrench",
+    blurb: "CI, containers, testing and deployment, repo-verified.",
     items: [
       { label: "Git & GitHub", src: "repo" },
       { label: "GitHub Actions CI", src: "repo" },
@@ -149,11 +163,8 @@ export const skillGroups = [
       { label: "Vercel", src: "repo" },
       { label: "Render", src: "repo" },
       { label: "Pytest / Playwright", src: "repo" },
+      { label: "IoT fundamentals", src: "resume" },
     ],
-  },
-  {
-    title: "Domain",
-    items: [{ label: "IoT fundamentals", src: "resume" }],
   },
 ];
 

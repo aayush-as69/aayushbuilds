@@ -1,6 +1,24 @@
+import {
+  Code2,
+  AppWindow,
+  Server,
+  Database,
+  Brain,
+  Wrench,
+  Info,
+} from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { skillGroups, skillLegend } from "@/data/site";
+
+const icons = {
+  code: Code2,
+  window: AppWindow,
+  server: Server,
+  database: Database,
+  brain: Brain,
+  wrench: Wrench,
+};
 
 const dotColor = {
   repo: "bg-accent",
@@ -16,45 +34,91 @@ export default function Skills() {
           index="02"
           eyebrow="Skills"
           title="Tools I build with."
-          description="A honest snapshot — resume-confirmed fundamentals plus technologies verified in my public repositories. No invented proficiency percentages."
+          description="An honest snapshot of the stack behind my repositories — resume-confirmed fundamentals plus technologies verified in public code. No invented proficiency percentages."
         />
 
-        <Reveal>
-          <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {skillGroups.map((group) => (
-              <div key={group.title}>
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-soft">
-                  {group.title}
-                </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <li key={item.label} className="chip">
-                      <span
-                        className={`dot ${dotColor[item.src]}`}
-                        aria-hidden="true"
-                      />
-                      {item.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-line-soft pt-6">
-            {skillLegend.map((l) => (
-              <li
-                key={l.src}
-                className="flex items-center gap-2 font-mono text-[11px] text-mute"
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {skillGroups.map((group, i) => {
+            const Icon = icons[group.icon] || Code2;
+            return (
+              <Reveal
+                key={group.title}
+                delay={(i % 3) * 0.06}
+                className={group.wide ? "sm:col-span-2" : undefined}
               >
-                <span className={`dot ${dotColor[l.src]}`} aria-hidden="true" />
-                {l.label}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+                <article
+                  className={`card group flex h-full flex-col p-5 transition-colors duration-300 hover:border-accent-border sm:p-6 ${
+                    group.wide
+                      ? "border-accent-border bg-[var(--accent-dim)]"
+                      : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-colors ${
+                        group.wide
+                          ? "border-accent-border bg-surface text-accent"
+                          : "border-line bg-surface2 text-accent"
+                      }`}
+                    >
+                      <Icon size={17} aria-hidden="true" />
+                    </span>
+                    <h3 className="text-base font-semibold">{group.title}</h3>
+                    <span
+                      className="ml-auto font-mono text-[10px] text-mute"
+                      aria-hidden="true"
+                    >
+                      {String(group.items.length).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-[13px] leading-relaxed text-mute">
+                    {group.blurb}
+                  </p>
+
+                  <ul className="mt-4 flex flex-wrap gap-2 pt-1">
+                    {group.items.map((item) => (
+                      <li key={item.label} className="chip">
+                        <span
+                          className={`dot ${dotColor[item.src]}`}
+                          aria-hidden="true"
+                        />
+                        {item.label}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            );
+          })}
+
+          {/* Honesty legend as a card — keeps the grid balanced and the promise visible */}
+          <Reveal delay={0.12}>
+            <aside className="card flex h-full flex-col p-5 sm:p-6" aria-label="How to read the skill dots">
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-surface2 text-mute">
+                  <Info size={17} aria-hidden="true" />
+                </span>
+                <h3 className="text-base font-semibold">How the dots work</h3>
+              </div>
+              <ul className="mt-4 space-y-2.5">
+                {skillLegend.map((l) => (
+                  <li
+                    key={l.src}
+                    className="flex items-center gap-2.5 text-[13px] text-mute"
+                  >
+                    <span className={`dot ${dotColor[l.src]}`} aria-hidden="true" />
+                    {l.label}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-auto border-t border-line-soft pt-4 font-mono text-[10.5px] leading-relaxed text-mute">
+                every item traces to real code or the resume — nothing is
+                self-rated
+              </p>
+            </aside>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
