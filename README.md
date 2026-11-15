@@ -10,7 +10,7 @@ Aayush Singh's personal developer portfolio — dark-first, Matrix-boot inspired
 - **Premium dark-first design system** — CSS-variable tokens (dark default + optional light theme), Space Grotesk / Inter / JetBrains Mono.
 - **Hero with a self-typing terminal** that starts after the boot screen finishes.
 - **Project showcase with case studies** — the strongest four builds lead, the rest sit behind a "more projects" toggle, and every project has its own `/projects/[slug]` page with a distinct description, generated OG image and sitemap entry.
-- **Interactive glass break** on the featured project — click to crack the pane; the cracks stay for the rest of the session.
+- **Frosted-glass project cards** — every project card uses a static frosted-glass treatment (backdrop blur, soft sheen, edge highlight) that adapts to the dark and light themes.
 - **Server-side GitHub section** — pinned repositories, repo count and primary languages fetched in a server component with hourly revalidation, so the API is called once per hour instead of once per visitor. Falls back to a curated list if GitHub is unavailable.
 - **Full SEO** — per-page metadata, generated Open Graph images with alt text, expanded sitemap, robots, JSON-LD Person + CreativeWork schemas, semantic headings.
 - **Accessibility** — skip link, keyboard navigation, visible focus states, ARIA labels, reduced-motion support, contrast-checked palette.
