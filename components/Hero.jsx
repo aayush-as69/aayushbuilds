@@ -206,6 +206,7 @@ function Terminal() {
         </p>
       </div>
       <div
+        role="group"
         className="min-h-[248px] space-y-1 px-4 py-4 font-mono text-[12.5px] leading-relaxed sm:text-[13px]"
         aria-label="Terminal introducing Aayush Singh"
       >

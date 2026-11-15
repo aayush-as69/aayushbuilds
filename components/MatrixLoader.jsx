@@ -12,7 +12,9 @@ import { useEffect, useRef, useState } from "react";
  * - Skipped entirely for prefers-reduced-motion users.
  * - Lightweight: capped FPS, capped DPR, fewer columns on small/low-power
  *   devices, paused when the tab is hidden.
- * - Always auto-completes (≈2s); a keyboard-accessible Skip button is shown.
+ * - Always auto-completes (≈3s; ≈1.6s on screens under 640px, with a lower
+ *   frame rate, fewer columns and shorter tails); a keyboard-accessible Skip
+ *   button is shown.
  * - Falls back to a text-only boot if the canvas is unavailable.
  */
 
@@ -32,7 +34,9 @@ const BOOT_LINES = [
 
 const DURATION = 3200;
 const DURATION_LOW_POWER = 2200;
+const DURATION_NARROW = 1600;
 const FPS = 26;
+const FPS_NARROW = 18;
 
 export default function MatrixLoader() {
   const [phase, setPhase] = useState("visible"); // visible -> exiting -> done
@@ -83,8 +87,14 @@ export default function MatrixLoader() {
     }
 
     // Progress state (~12 fps is plenty for a progress bar)
-    const duration =
-      (navigator.hardwareConcurrency || 8) <= 2 ? DURATION_LOW_POWER : DURATION;
+    const narrow = window.innerWidth < 640;
+    const duration = narrow
+      ? DURATION_NARROW
+      : (navigator.hardwareConcurrency || 8) <= 2
+        ? DURATION_LOW_POWER
+        : DURATION;
+    const fps = narrow ? FPS_NARROW : FPS;
+    const tails = narrow ? 2 : 3;
     const start = performance.now();
     const ui = setInterval(() => {
       const p = Math.min(100, Math.round(((performance.now() - start) / duration) * 100));
@@ -105,12 +115,12 @@ export default function MatrixLoader() {
     }
 
     const lowPower = (navigator.hardwareConcurrency || 8) <= 2;
-    const colWidth = lowPower ? 26 : 18;
+    const colWidth = lowPower || narrow ? 26 : 18;
     let columns = [];
 
     const setup = () => {
       if (!ctx) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, narrow ? 1 : 1.5);
       const w = window.innerWidth;
       const h = window.innerHeight;
       canvas.width = Math.floor(w * dpr);
@@ -143,7 +153,7 @@ export default function MatrixLoader() {
         last = ts;
         return;
       }
-      if (ts - last < 1000 / FPS) return;
+      if (ts - last < 1000 / fps) return;
       last = ts;
 
       if (ctx) {
@@ -156,7 +166,7 @@ export default function MatrixLoader() {
         for (const col of columns) {
           // Most columns stream every tick — dense, full-bleed rain
           if (Math.random() > 0.8) continue;
-          col.y += col.speed / FPS;
+          col.y += col.speed / fps;
           if (col.y > h + 80 && Math.random() > 0.985) {
             col.y = Math.random() * -h * 0.4;
             col.speed = 70 + Math.random() * 90;
@@ -167,7 +177,7 @@ export default function MatrixLoader() {
           ctx.fillText(GLYPHS[(Math.random() * GLYPHS.length) | 0], col.x, col.y);
           // Long dim tail — several glyphs below the head
           ctx.fillStyle = "rgba(46, 143, 92, 0.32)";
-          for (let t = 1; t <= 3; t += 1) {
+          for (let t = 1; t <= tails; t += 1) {
             ctx.fillText(
               GLYPHS[(Math.random() * GLYPHS.length) | 0],
               col.x,
