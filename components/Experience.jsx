@@ -11,7 +11,7 @@ export default function Experience() {
     >
       <div className="container-x">
         <SectionHeader
-          index="04"
+          index="05"
           eyebrow="Experience"
           title="Where I'm building and leading."
           description="A bit about where I've been spending my time — campus leadership, hackathons and the projects in between."
