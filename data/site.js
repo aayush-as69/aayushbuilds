@@ -72,9 +72,9 @@ export const leadership = {
   role: "Class Representative",
   org: "Galgotias College of Engineering and Technology",
   points: [
-    "Served as the primary communication link between faculty and students",
-    "Organised classmates around schedules, submissions and academic activities",
-    "Encouraged collaborative learning and peer support across the batch",
+    "Serve as the primary communication link between faculty and students",
+    "Organise classmates around schedules, submissions and academic activities",
+    "Encourage collaborative learning and peer support across the batch",
   ],
 };
 
@@ -170,9 +170,9 @@ export const experience = [
     type: "Campus leadership",
     context: "B.Tech CSE · 2025–2029",
     points: [
-      "Acted as the day-to-day communication link between faculty and the batch",
-      "Organised classmates around schedules, deadlines and academic activities",
-      "Fostered collaborative learning and peer coordination across the batch",
+      "Act as the day-to-day communication link between faculty and the batch",
+      "Organise classmates around schedules, deadlines and academic activities",
+      "Foster collaborative learning and peer coordination across the batch",
     ],
     tags: ["Coordination", "Communication", "Teamwork"],
   },
