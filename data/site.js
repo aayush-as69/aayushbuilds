@@ -184,7 +184,7 @@ export const experience = [
     role: "Team Leader · Backend & Agent Architecture",
     org: "Team BitBenders",
     type: "Hackathon & project builds",
-    context: "Verified across public repositories",
+    context: "HackBase HackDays & team builds",
     points: [
       "Led backend and agent architecture across the team's builds",
       "TerraSync — Gemini-assisted civic reporting platform built for HackBase HackDays (Edition 2)",
