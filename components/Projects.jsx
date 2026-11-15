@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import ProjectPreview from "./ProjectPreview";
+import GlassBreak from "./GlassBreak";
 import { GithubIcon } from "./icons";
 import { projects } from "@/data/projects";
 import SectionHeader from "./SectionHeader";
@@ -27,6 +28,7 @@ export default function Projects() {
         {/* Featured project — Handover */}
         <Reveal>
           <article className="card group relative overflow-hidden">
+            <GlassBreak />
             <div className="grid lg:grid-cols-[1fr_1.12fr]">
               <div className="flex flex-col p-6 sm:p-8 lg:p-10">
                 <div className="flex items-center gap-3">
