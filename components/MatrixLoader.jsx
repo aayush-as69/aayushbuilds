@@ -21,14 +21,18 @@ const GLYPHS =
 
 const BOOT_LINES = [
   "INITIALIZING ENVIRONMENT...",
+  "MOUNTING FILESYSTEM...",
   "LOADING MODULES...",
+  "COMPILING SHADERS...",
   "ESTABLISHING SESSION...",
+  "SYNCING REPOSITORIES...",
+  "LINKING RUNTIME...",
   "READY",
 ];
 
-const DURATION = 2050;
-const DURATION_LOW_POWER = 1300;
-const FPS = 22;
+const DURATION = 3200;
+const DURATION_LOW_POWER = 2200;
+const FPS = 26;
 
 export default function MatrixLoader() {
   const [phase, setPhase] = useState("visible"); // visible -> exiting -> done
@@ -101,7 +105,7 @@ export default function MatrixLoader() {
     }
 
     const lowPower = (navigator.hardwareConcurrency || 8) <= 2;
-    const colWidth = lowPower ? 38 : 27;
+    const colWidth = lowPower ? 26 : 18;
     let columns = [];
 
     const setup = () => {
@@ -120,8 +124,8 @@ export default function MatrixLoader() {
       columns = Array.from({ length: count }, (_, i) => ({
         x: i * colWidth,
         y: Math.random() * -h * 0.5,
-        speed: 55 + Math.random() * 70,
-        gap: 14 + Math.floor(Math.random() * 6),
+        speed: 70 + Math.random() * 90,
+        gap: 13 + Math.floor(Math.random() * 6),
       }));
     };
 
@@ -146,29 +150,28 @@ export default function MatrixLoader() {
         const w = window.innerWidth;
         const h = window.innerHeight;
         // Trail fade
-        ctx.fillStyle = "rgba(9, 11, 10, 0.17)";
+        ctx.fillStyle = "rgba(9, 11, 10, 0.15)";
         ctx.fillRect(0, 0, w, h);
         ctx.font = font;
         for (const col of columns) {
-          // Sparse by design — some columns stay quiet each tick
-          if (Math.random() > 0.62) continue;
+          // Most columns stream every tick — dense, full-bleed rain
+          if (Math.random() > 0.8) continue;
           col.y += col.speed / FPS;
-          if (col.y > h + 80 && Math.random() > 0.975) {
+          if (col.y > h + 80 && Math.random() > 0.985) {
             col.y = Math.random() * -h * 0.4;
-            col.speed = 55 + Math.random() * 70;
+            col.speed = 70 + Math.random() * 90;
           }
           if (col.y < 0) continue;
-          const ch = GLYPHS[(Math.random() * GLYPHS.length) | 0];
           // Head
-          ctx.fillStyle = "rgba(126, 244, 168, 0.62)";
-          ctx.fillText(ch, col.x, col.y);
-          // Occasional trailing glyph, very dim
-          if (Math.random() > 0.5) {
-            ctx.fillStyle = "rgba(46, 143, 92, 0.28)";
+          ctx.fillStyle = "rgba(140, 248, 178, 0.8)";
+          ctx.fillText(GLYPHS[(Math.random() * GLYPHS.length) | 0], col.x, col.y);
+          // Long dim tail — several glyphs below the head
+          ctx.fillStyle = "rgba(46, 143, 92, 0.32)";
+          for (let t = 1; t <= 3; t += 1) {
             ctx.fillText(
               GLYPHS[(Math.random() * GLYPHS.length) | 0],
               col.x,
-              col.y - col.gap
+              col.y - col.gap * t
             );
           }
         }
@@ -219,7 +222,7 @@ export default function MatrixLoader() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 50% 46%, rgba(9,11,10,0) 0%, rgba(9,11,10,0.86) 100%)",
+            "radial-gradient(ellipse 80% 70% at 50% 46%, rgba(9,11,10,0) 0%, rgba(9,11,10,0.55) 100%)",
         }}
       />
 

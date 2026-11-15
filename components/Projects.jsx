@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import GlassBreak from "./GlassBreak";
+import GlassPane from "./GlassPane";
 import { GithubIcon } from "./icons";
 import { projects } from "@/data/projects";
 import SectionHeader from "./SectionHeader";
@@ -27,7 +27,7 @@ export default function Projects() {
         {/* Featured project — Handover */}
         <Reveal>
           <article className="card group relative overflow-hidden">
-            <GlassBreak />
+            <GlassPane seed={featured.slug} />
             <div className="flex flex-col p-6 sm:p-8">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-accent">
@@ -98,6 +98,8 @@ export default function Projects() {
 function ProjectCard({ project }) {
   return (
     <article className="card group flex h-full flex-col p-4 transition-all duration-300 hover:-translate-y-1 hover:border-accent-border hover:shadow-glow sm:p-5">
+      <GlassPane seed={project.slug} />
+
       <div className="flex flex-1 flex-col px-1.5 pb-1.5 pt-1">
         <div className="flex items-center gap-3">
           <span className="font-mono text-xs text-accent">{project.number}</span>
