@@ -42,10 +42,6 @@ module.exports = {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.45" },
         },
-        "wave-eq": {
-          "0%, 100%": { transform: "scaleY(0.35)" },
-          "50%": { transform: "scaleY(1)" },
-        },
         "caret-blink": {
           "0%, 45%": { opacity: "1" },
           "50%, 95%": { opacity: "0" },
@@ -53,7 +49,6 @@ module.exports = {
       },
       animation: {
         "pulse-soft": "pulse-soft 2.6s ease-in-out infinite",
-        "wave-eq": "wave-eq 1.1s ease-in-out infinite",
         "caret-blink": "caret-blink 1.1s steps(1) infinite",
       },
     },
