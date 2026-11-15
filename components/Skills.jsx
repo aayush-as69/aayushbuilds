@@ -25,6 +25,13 @@ const projectBySlug = Object.fromEntries(
   projects.map((project) => [project.slug, project])
 );
 
+// A skill counts as "shipped" when one of its `tech` names appears in a
+// project's tech list. Derived from data/projects.js so it can't drift.
+const projectsUsing = (item) =>
+  projects.filter((project) =>
+    (item.tech || []).some((name) => project.tech.includes(name))
+  );
+
 export default function Skills() {
   return (
     <section id="skills" className="section-pad border-t border-line-soft">
@@ -33,8 +40,16 @@ export default function Skills() {
           index="02"
           eyebrow="Skills"
           title="Tools I build with."
-          description="Here's the stack I reach for day to day — the languages, frameworks and tools I've picked up while building things I care about."
+          description="Here's the stack I reach for day to day. Highlighted skills are ones I've used in the projects below."
         />
+
+        <p className="-mt-6 mb-6 flex items-center sm:-mt-10 gap-2 font-mono text-[11px] text-mute">
+          <span
+            aria-hidden="true"
+            className="inline-block h-3 w-5 rounded-full border border-accent-border bg-[var(--accent-dim)]"
+          />
+          used in a project below · hover a skill to see which
+        </p>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, i) => {
@@ -42,6 +57,9 @@ export default function Skills() {
             const linked = (group.projects || [])
               .map((slug) => projectBySlug[slug])
               .filter(Boolean);
+            const provenCount = group.items.filter(
+              (item) => projectsUsing(item).length > 0
+            ).length;
 
             return (
               <Reveal
@@ -71,7 +89,7 @@ export default function Skills() {
                       className="ml-auto font-mono text-[10px] text-mute"
                       aria-hidden="true"
                     >
-                      {String(group.items.length).padStart(2, "0")}
+                      {provenCount}/{group.items.length}
                     </span>
                   </div>
 
@@ -80,11 +98,26 @@ export default function Skills() {
                   </p>
 
                   <ul className="mt-4 flex flex-wrap gap-2 pt-1">
-                    {group.items.map((item) => (
-                      <li key={item.label} className="chip">
-                        {item.label}
-                      </li>
-                    ))}
+                    {group.items.map((item) => {
+                      const used = projectsUsing(item);
+                      const names = used.map((project) => project.name).join(", ");
+                      return (
+                        <li
+                          key={item.label}
+                          className={`chip ${
+                            used.length > 0
+                              ? "!border-accent-border !bg-[var(--accent-dim)] !text-ink"
+                              : ""
+                          }`}
+                          title={used.length > 0 ? `Used in ${names}` : undefined}
+                        >
+                          {item.label}
+                          {used.length > 0 ? (
+                            <span className="sr-only">, used in {names}</span>
+                          ) : null}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {linked.length > 0 ? (
