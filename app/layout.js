@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import ConsoleGreeting from "@/components/ConsoleGreeting";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -95,6 +96,7 @@ export default function RootLayout({ children }) {
           Skip to content
         </a>
         {children}
+        <ConsoleGreeting />
       </body>
     </html>
   );

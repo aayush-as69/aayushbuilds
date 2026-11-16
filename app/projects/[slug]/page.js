@@ -186,6 +186,23 @@ export default async function ProjectPage({ params }) {
             </section>
           </div>
 
+          {project.reflection ? (
+            <section
+              aria-labelledby="what-id-do-differently"
+              className="mt-12 max-w-3xl rounded-2xl border border-line bg-surface p-6 sm:p-8"
+            >
+              <h2
+                id="what-id-do-differently"
+                className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-soft"
+              >
+                What I&apos;d do differently
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-mute">
+                {project.reflection}
+              </p>
+            </section>
+          ) : null}
+
           <nav
             aria-label="Project navigation"
             className="mt-14 flex items-center justify-between gap-4 border-t border-line-soft pt-8"

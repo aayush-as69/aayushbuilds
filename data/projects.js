@@ -4,7 +4,12 @@
 // homepage: a path to a file in /public, e.g. "/projects/handover.webp"
 // (16:10, about 1440px wide, WebP or PNG, ideally under ~150 KB). While it is
 // null the gallery shows a generated placeholder card instead.
-// Ordered strongest-first: Handover is featured, the next six sit in the lead
+//
+// `reflection` is one honest paragraph shown at the bottom of the case study
+// under "What I'd do differently": what broke, what I'd redo, what I learned.
+// Leave it out (or null) and the section simply doesn't render.
+//
+// Ordered strongest-first: Handover is featured, the next four sit in the lead
 // grid, and the rest live behind the "more projects" toggle on the homepage.
 
 export const projects = [
@@ -45,6 +50,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/Handover",
     liveDemo: "https://handover-2hpd.onrender.com",
     shot: "/projects/handover.webp",
+    reflection:
+      "Handover began with research, not code: five survey and eight interview responses before I built anything, so the product started from real handovers. The rule I'd carry into everything I build next is the one it enforces — an AI can propose a claim, but only a person can publish it. What I'd do differently is put it in front of someone outside the project sooner; a tool about handing work over should be tested by someone who wasn't there.",
   },
   {
     name: "BrandGuard",
@@ -78,6 +85,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/BrandGuard",
     liveDemo: null,
     shot: "/projects/brandguard.webp",
+    reflection:
+      "BrandGuard's rule engine is deterministic on purpose, and the optional AI judge has to quote a real rule or its answer is thrown away. That also makes it easy to test, which is where the ~225 tests in CI come from. What I'd do differently is ship a hosted demo from the start: right now the only way to try it is to clone the repo, and a governance tool people can't open in one click is hard to trust.",
   },
   {
     name: "MaskChat",
@@ -111,6 +120,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/MaskChat-MERN",
     liveDemo: "https://mask-chat-mern.vercel.app",
     shot: "/projects/maskchat.webp",
+    reflection:
+      "My first design kept sessions ephemeral: messages lived in memory and were wiped when a session ended. The MERN rebuild persists the matching queue and keeps audit events, because moderation needs a record of what happened. Holding anonymity and accountability together was the hard part. What I'd do differently is settle that trade-off on paper first, before writing the first socket handler.",
   },
   {
     name: "ExceptionPilot",
@@ -145,6 +156,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/exceptionpilot",
     liveDemo: null,
     shot: "/projects/exceptionpilot.webp",
+    reflection:
+      "The three-way matching gets the attention, but the part I'd defend hardest is the append-only audit trail, single-use approvals and separation of duties — they're what make an exception decision explainable later. What I'd do differently is ship a hosted demo with seeded invoices, so someone can walk one exception from flag to approval without cloning the repo.",
   },
   {
     name: "Meetloop",
@@ -177,6 +190,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/meet-loop",
     liveDemo: null,
     shot: "/projects/meetloop.webp",
+    reflection:
+      "I built Meetloop alone inside a four-hour hackathon window. The part I'm gladdest I built is the rule-based fallback: the whole flow still works without an LLM key. What I'd do differently is the order of work — in a time-boxed build I'd run the full flow end to end much earlier, instead of leaving the live test and the demo recording for the final stretch. A demo that can't fail beats a clever feature that can.",
   },
   {
     name: "BharatCode Atlas",
@@ -210,6 +225,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/BharatCode-Atlas",
     liveDemo: null,
     shot: "/projects/bharatcode-atlas.webp",
+    reflection:
+      "Atlas is still in active development, so this is a progress note rather than a retrospective. The rule I'm holding it to is the one I use everywhere: nothing appears without the evidence behind it, including the AI Researcher, which shows the projects behind every answer. I'll update this once it has had real users and I know what I'd change.",
   },
   {
     name: "VoiceOps — ZentroMart",
@@ -242,6 +259,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/voiceops-zentromart",
     liveDemo: null,
     shot: "/projects/voiceops.webp",
+    reflection:
+      "VoiceOps follows one rule: say \"I don't know\" rather than guess, so failures are explicit states instead of made-up answers. Retrieval is plain TF-IDF and cosine similarity, which keeps it explainable and easy to test (113 tests) but will miss questions phrased differently from the knowledge base. If I rebuilt it, I'd compare embedding-based retrieval against the same evaluation harness and let the numbers decide.",
   },
   {
     name: "TerraSync",
@@ -268,6 +287,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/terrasync",
     liveDemo: null,
     shot: "/projects/terrasync.webp",
+    reflection:
+      "The first schema was thinner than the app that grew on it. I hit MySQL's error 3823 — a CHECK constraint clashing with cascading foreign keys — and only found missing tables and columns once the admin console needed them. A later audit turned up dead code, a hardcoded ward ID and secrets that belonged in an environment file. Next time I'd design the schema and a .env.example on day one, and audit as I go. The AI layer gets the attention, but it only works as well as these boring foundations.",
   },
   {
     name: "CivicSync",
@@ -293,6 +314,8 @@ export const projects = [
     github: "https://github.com/aayush-as69/civicsync",
     liveDemo: "https://civicsync-topaz.vercel.app",
     shot: "/projects/civicsync.webp",
+    reflection:
+      "CivicSync is my second take on the civic-complaint idea after TerraSync, built with Team BitBenders and deliberately lighter. The lesson I carried over: the AI only proposes and Flask decides, so the app still works when the model doesn't. What I'd do differently is the demo-admin mode — it's clearly labelled, but I'd replace it with proper staff sign-in, as TerraSync has.",
   },
 ];
 
