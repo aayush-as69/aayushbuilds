@@ -43,7 +43,7 @@ export default function OpengraphImage() {
             maxWidth: 980,
           }}
         >
-          Building ideas into working software.
+          I build AI tools that show their evidence.
         </div>
         <div
           style={{

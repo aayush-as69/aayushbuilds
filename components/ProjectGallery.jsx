@@ -26,8 +26,11 @@ import { ArrowUpRight, Pause, Play } from "lucide-react";
 const COPIES = 4; // the loop distance is 1 / COPIES of the track
 // Two columns keep the cards big enough to read a landing page, and mean no
 // card shows up twice inside the visible window (every column is taller than
-// what is on screen).
+// what is on screen). Phones get one column: two would make each card too
+// small to read a name or a screenshot.
 const COLUMNS = 2;
+const COLUMNS_NARROW = 1;
+const NARROW_QUERY = "(max-width: 639px)";
 // Seconds one card takes to scroll past, per column. A column's loop lasts
 // (cards in column x this), so every column keeps a steady speed in px/s
 // whatever its length. Lower numbers are faster (about 30 px/s on desktop).
@@ -48,6 +51,19 @@ export default function ProjectGallery({ projects }) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [inView, setInView] = useState(true);
+  const [columns, setColumns] = useState(null); // null until the screen width is known
+
+  // Pick the column count once, after mount, and only then build the cards:
+  // drawing two columns first and switching to one on phones would throw away
+  // and rebuild every card (and its image) right during page load.
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const mq = window.matchMedia(NARROW_QUERY);
+    const apply = () => setColumns(mq.matches ? COLUMNS_NARROW : COLUMNS);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
 
   // Stop animating while the gallery is off-screen.
   useEffect(() => {
@@ -75,13 +91,29 @@ export default function ProjectGallery({ projects }) {
         onBlur={() => setFocused(false)}
         className="relative rounded-2xl border border-line bg-surface p-3 sm:p-4 motion-safe:h-[360px] motion-safe:overflow-hidden motion-safe:sm:h-[520px] motion-safe:lg:h-[560px]"
       >
+        <div className="h-full motion-safe:[-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_12%,#000_88%,transparent)] motion-safe:[mask-image:linear-gradient(to_bottom,transparent,#000_12%,#000_88%,transparent)]">
+          <div className="flex h-full gap-3 sm:gap-4">
+            {columns
+              ? splitColumns(projects, columns).map((items, i) => (
+                  <Column key={i} items={items} index={i} paused={paused} />
+                ))
+              : null}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <p className="font-mono text-[11px] text-mute">
+          Select a card for its case study.
+          <span className="motion-reduce:hidden"> Hover or focus to pause.</span>
+        </p>
         <button
           type="button"
           onClick={() => setUserPaused((v) => !v)}
           aria-label={
             userPaused ? "Play project preview motion" : "Pause project preview motion"
           }
-          className="absolute right-3 top-3 z-20 inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-2.5 py-1.5 font-mono text-[11px] text-mute transition-colors hover:border-accent-border hover:text-accent motion-reduce:hidden sm:right-4 sm:top-4"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-line bg-surface px-3 py-2 font-mono text-[11px] text-mute transition-colors hover:border-accent-border hover:text-accent motion-reduce:hidden"
         >
           {userPaused ? (
             <Play size={12} aria-hidden="true" />
@@ -90,20 +122,7 @@ export default function ProjectGallery({ projects }) {
           )}
           {userPaused ? "Play" : "Pause"}
         </button>
-
-        <div className="h-full motion-safe:[-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_12%,#000_88%,transparent)] motion-safe:[mask-image:linear-gradient(to_bottom,transparent,#000_12%,#000_88%,transparent)]">
-          <div className="flex h-full gap-3 sm:gap-4">
-            {splitColumns(projects, COLUMNS).map((items, i) => (
-              <Column key={i} items={items} index={i} paused={paused} />
-            ))}
-          </div>
-        </div>
       </div>
-
-      <p className="mt-3 font-mono text-[11px] text-mute">
-        Select a card for its case study.
-        <span className="motion-reduce:hidden"> Hover or focus to pause.</span>
-      </p>
     </div>
   );
 }

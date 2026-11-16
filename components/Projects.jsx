@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, ChevronDown } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -53,7 +54,7 @@ export default function Projects() {
 
         {/* Featured project — Handover */}
         <Reveal>
-          <article className="card glass-card group">
+          <article className="card glass-card group grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
             <div className="flex flex-col p-6 sm:p-8">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-accent">
@@ -81,7 +82,7 @@ export default function Projects() {
               </ul>
 
               <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
-                <p className="mr-auto flex items-center gap-2 font-mono text-[11px] text-accent-soft">
+                <p className="flex basis-full items-center gap-2 font-mono text-[11px] text-accent-soft">
                   <span className="dot bg-accent animate-pulse-soft" aria-hidden="true" />
                   {featured.status}
                 </p>
@@ -114,6 +115,23 @@ export default function Projects() {
                 </a>
               </div>
             </div>
+
+            {featured.shot ? (
+              <div className="self-center px-6 pb-6 sm:px-8 sm:pb-8 lg:py-8 lg:pl-0">
+                <Link
+                  href={`/projects/${featured.slug}`}
+                  className="group/shot relative block aspect-[16/10] overflow-hidden rounded-xl border border-line bg-surface2 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-glow focus-visible:border-accent"
+                >
+                  <Image
+                    src={featured.shot}
+                    alt={`${featured.name} landing page`}
+                    fill
+                    sizes="(min-width: 1024px) 460px, 90vw"
+                    className="object-cover object-top"
+                  />
+                </Link>
+              </div>
+            ) : null}
           </article>
         </Reveal>
 

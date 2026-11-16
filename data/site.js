@@ -30,9 +30,9 @@ export const navLinks = [
 
 export const hero = {
   eyebrow: "Computer Science Engineering Student · Developer · Builder",
-  titleTop: "Building ideas into",
-  titleAccent: "working software.",
-  copy: "I'm Aayush Singh. I build AI tools that show their evidence and keep humans in the loop — plus the full-stack products around them, from database schema to deployment.",
+  titleTop: "I build AI tools that",
+  titleAccent: "show their evidence.",
+  copy: "I'm Aayush Singh. Every claim links to its source and a person makes the final call — and I build the full-stack product around it, from database schema to deployment.",
   actions: [
     { label: "Explore My Work", href: "#projects", primary: true },
     { label: "Let's Connect", href: "#contact" },

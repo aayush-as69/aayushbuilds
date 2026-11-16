@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
  * - Skipped entirely for prefers-reduced-motion users.
  * - Lightweight: capped FPS, capped DPR, fewer columns on small/low-power
  *   devices, paused when the tab is hidden.
- * - Always auto-completes (≈3s; ≈1.6s on screens under 640px, with a lower
+ * - Always auto-completes (≈1.5s; ≈1s on screens under 640px, with a lower
  *   frame rate, fewer columns and shorter tails); a keyboard-accessible Skip
  *   button is shown.
  * - Falls back to a text-only boot if the canvas is unavailable.
@@ -32,9 +32,9 @@ const BOOT_LINES = [
   "READY",
 ];
 
-const DURATION = 3200;
-const DURATION_LOW_POWER = 2200;
-const DURATION_NARROW = 1600;
+const DURATION = 1500;
+const DURATION_LOW_POWER = 1100;
+const DURATION_NARROW = 1000;
 const FPS = 26;
 const FPS_NARROW = 18;
 
@@ -58,7 +58,7 @@ export default function MatrixLoader() {
           document.body.classList.remove("booting");
           window.dispatchEvent(new Event("ab:booted"));
           setPhase("done");
-        }, fast ? 420 : 650)
+        }, fast ? 300 : 450)
       );
     };
 
@@ -211,7 +211,7 @@ export default function MatrixLoader() {
 
   return (
     <div
-      className={`matrix-overlay fixed inset-0 z-[100] flex items-center justify-center bg-bg transition-opacity duration-700 ease-out ${
+      className={`matrix-overlay fixed inset-0 z-[100] flex items-center justify-center bg-bg transition-opacity duration-[450ms] ease-out ${
         phase === "exiting" ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       role="status"
