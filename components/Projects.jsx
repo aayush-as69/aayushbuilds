@@ -21,10 +21,10 @@ export default function Projects() {
   const [showAll, setShowAll] = useState(false);
   const featured = projects.find((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
-  // The lead group is six cards so its rows fill evenly at every width: three
-  // across on desktop, two across on tablets, one on phones.
-  const lead = rest.slice(0, 6);
-  const more = rest.slice(6);
+  // The lead group is four cards, and both groups are two across from tablets
+  // up (one on phones), so every row fills evenly — collapsed or expanded.
+  const lead = rest.slice(0, 4);
+  const more = rest.slice(4);
 
   return (
     <section id="projects" className="section-pad border-t border-line-soft">
@@ -137,10 +137,10 @@ export default function Projects() {
           </article>
         </Reveal>
 
-        {/* Lead projects — best three after the featured build */}
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Lead projects — best four after the featured build */}
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {lead.map((p, i) => (
-            <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+            <Reveal key={p.slug} delay={(i % 2) * 0.06}>
               <ProjectCard project={p} />
             </Reveal>
           ))}
@@ -172,9 +172,9 @@ export default function Projects() {
 
             <div id="more-projects">
               {showAll ? (
-                <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-6 grid gap-6 sm:grid-cols-2">
                   {more.map((p, i) => (
-                    <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+                    <Reveal key={p.slug} delay={(i % 2) * 0.06}>
                       <ProjectCard project={p} />
                     </Reveal>
                   ))}
