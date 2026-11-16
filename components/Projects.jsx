@@ -21,8 +21,10 @@ export default function Projects() {
   const [showAll, setShowAll] = useState(false);
   const featured = projects.find((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
-  const lead = rest.slice(0, 3);
-  const more = rest.slice(3);
+  // The lead group is six cards so its rows fill evenly at every width: three
+  // across on desktop, two across on tablets, one on phones.
+  const lead = rest.slice(0, 6);
+  const more = rest.slice(6);
 
   return (
     <section id="projects" className="section-pad border-t border-line-soft">

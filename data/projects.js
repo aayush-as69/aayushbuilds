@@ -4,8 +4,8 @@
 // homepage: a path to a file in /public, e.g. "/projects/handover.webp"
 // (16:10, about 1440px wide, WebP or PNG, ideally under ~150 KB). While it is
 // null the gallery shows a generated placeholder card instead.
-// Ordered strongest-first: the four lead projects appear above the fold,
-// the rest live behind the "more projects" toggle on the homepage.
+// Ordered strongest-first: Handover is featured, the next six sit in the lead
+// grid, and the rest live behind the "more projects" toggle on the homepage.
 
 export const projects = [
   {
@@ -242,6 +242,57 @@ export const projects = [
     github: "https://github.com/aayush-as69/voiceops-zentromart",
     liveDemo: null,
     shot: "/projects/voiceops.webp",
+  },
+  {
+    name: "TerraSync",
+    slug: "terrasync",
+    number: "08",
+    category: "AI · Civic Tech",
+    tagline: "Civic complaints, triaged by AI and checked by a trust layer",
+    summary:
+      "Citizen reports routed to the right ward and department — with AI as an advisor whose output is validated before anything is assigned automatically.",
+    problem:
+      "Civic complaints arrive incomplete and hard to route, and an AI that guesses wrong can send a report to the wrong team.",
+    description:
+      "A Flask civic-reporting platform built with Team BitBenders for HackBase HackDays (Edition 2). Citizens report an issue with text or voice, a photo and GPS; Gemini proposes a category, severity and department, and a server-side trust layer validates that proposal before any automatic routing.",
+    highlights: [
+      "Gemini output is treated as untrusted input — schema-validated, checked against live categories, departments and duplicates, and confidence-gated",
+      "Low-confidence, duplicate or non-civic reports stay out of auto-assignment and go to a person; the complaint is always stored",
+      "Primary model, then fallback model, then a deterministic local fallback — the workflow keeps working when AI is down",
+      "Full lifecycle from Reported to Verified, with citizen verification, a staff console, SLA views and a map",
+      "Citizen and staff sign-in with OTP flows, SMS through a console provider or Twilio, and Docker / Gunicorn / Caddy deployment configs",
+      "24 offline unit tests covering validation, fallback, timeouts, prompt-injection quoting and the review policy",
+    ],
+    tech: ["Python", "Flask", "MySQL", "Gemini API", "Docker", "Gunicorn"],
+    status: "Working prototype · hackathon build",
+    github: "https://github.com/aayush-as69/terrasync",
+    liveDemo: null,
+    shot: "/projects/terrasync.webp",
+  },
+  {
+    name: "CivicSync",
+    slug: "civicsync",
+    number: "09",
+    category: "Full-stack · Civic Tech",
+    tagline: "From civic complaint to routed service ticket",
+    summary:
+      "Plain-language complaints turned into structured, routed tickets that citizens can follow with a private tracking token.",
+    problem:
+      "Citizens describe a broken streetlight, not a department — and a complaint with no route, record or history goes nowhere.",
+    description:
+      "A React and Flask civic-maintenance prototype built with Team BitBenders. It turns a plain-language complaint into a structured analysis, routes it to a department and keeps a traceable ticket with its status history. Flask stays in charge; AI only proposes.",
+    highlights: [
+      "Complaint to analysis to category to department to ticket, with optional Gemini analysis and a deterministic fallback",
+      "AI produces a constrained proposal; Flask validates it and is the only thing that writes to the database",
+      "Idempotent ticket creation and a private citizen tracking token",
+      "Department dashboard and persisted workflow events, behind a clearly labelled demo-admin mode",
+      "12 API tests, and a Vercel deployment path: static React front end plus a Flask serverless entry point",
+    ],
+    tech: ["Python", "Flask", "React", "TypeScript", "SQLAlchemy", "Gemini API"],
+    status: "Hackathon prototype · live demo",
+    github: "https://github.com/aayush-as69/civicsync",
+    liveDemo: "https://civicsync-topaz.vercel.app",
+    shot: "/projects/civicsync.webp",
   },
 ];
 
